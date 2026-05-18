@@ -1,0 +1,251 @@
+:root {
+  --pink-soft: #fce8ef;
+  --pink-mid: #f5c6d6;
+  --pink-accent: #e8a4b8;
+  --pink-deep: #d4849a;
+  --white: #ffffff;
+  --text: #3d3238;
+  --text-muted: #6b5d63;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.45;
+  color: var(--text);
+  background: #f0e4e8;
+  padding: 1rem;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.btn-link,
+.btn-print {
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.6rem 1.1rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-link {
+  background: var(--white);
+  color: var(--pink-deep);
+  border: 2px solid var(--pink-mid);
+}
+
+.btn-print {
+  background: linear-gradient(135deg, var(--pink-accent), var(--pink-deep));
+  color: var(--white);
+}
+
+/* ===== A4 page ===== */
+.cv-page {
+  width: 210mm;
+  min-height: 297mm;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 14mm 16mm;
+  background: var(--white);
+  box-shadow: 0 8px 40px rgba(212, 132, 154, 0.2);
+  border-top: 5px solid var(--pink-accent);
+}
+
+.cv-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 2px solid var(--pink-soft);
+}
+
+.cv-photo {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--pink-mid);
+  flex-shrink: 0;
+}
+
+.cv-intro h1 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.55rem;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.tagline {
+  font-weight: 600;
+  color: var(--pink-deep);
+  font-size: 0.95rem;
+  margin-top: 0.15rem;
+}
+
+.meta {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.cv-body {
+  display: grid;
+  grid-template-columns: 1fr 68mm;
+  gap: 1rem;
+  align-items: start;
+}
+
+.cv-col h2 {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--pink-deep);
+  margin-bottom: 0.35rem;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid var(--pink-soft);
+}
+
+.cv-col section {
+  margin-bottom: 0.65rem;
+}
+
+.cv-col p,
+.compact-list {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.compact-list {
+  list-style: none;
+}
+
+.compact-list li {
+  margin-bottom: 0.3rem;
+  padding-left: 0.65rem;
+  position: relative;
+}
+
+.compact-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.45em;
+  width: 5px;
+  height: 5px;
+  background: var(--pink-accent);
+  border-radius: 50%;
+}
+
+.muted {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.skill-tags span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  background: var(--pink-soft);
+  color: var(--pink-deep);
+  border-radius: 999px;
+}
+
+.side {
+  background: var(--pink-soft);
+  border-radius: 10px;
+  padding: 0.65rem;
+}
+
+.qr-block {
+  text-align: center;
+  margin-bottom: 0.65rem;
+  padding: 0.5rem;
+  background: var(--white);
+  border-radius: 8px;
+}
+
+.qr-image {
+  display: block;
+  margin: 0 auto;
+  width: 128px;
+  height: 128px;
+  object-fit: contain;
+}
+
+.qr-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--pink-deep);
+  margin-top: 0.35rem;
+}
+
+.contact-list {
+  list-style: none;
+  font-size: 0.82rem;
+}
+
+.contact-list li {
+  margin-bottom: 0.25rem;
+}
+
+.cv-footer {
+  margin-top: 0.5rem;
+  padding-top: 0.4rem;
+  border-top: 1px dashed var(--pink-mid);
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+@media print {
+  body {
+    background: #fff;
+    padding: 0;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .cv-page {
+    box-shadow: none;
+    width: 100%;
+    min-height: auto;
+    padding: 12mm 14mm;
+  }
+}
+
+@media (max-width: 720px) {
+  .cv-body {
+    grid-template-columns: 1fr;
+  }
+
+  .cv-page {
+    width: 100%;
+    min-height: auto;
+  }
+}
